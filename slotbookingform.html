@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Include Firebase JavaScript SDK -->
+    <script src=""></script>
+
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Book Your Slot</title>
+  </head>
+  <body>
+    <div class="header55">         
+      <a href="index.html"><div class="menu-container">
+          <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span class="menu-text"> Back to Home</span>
+        </div></a>
+        
+
+
+      <div class="logo-icon">
+         
+
+      </div>
+
+      <div class="profile-icon">
+        
+        </div>
+
+  </div>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form id="submitform" class="sign-in-form">
+            <h2 class="title">Book Your Slot</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <select id="service">
+                <option value="" disabled selected>Select Your Service</option>
+                <option value="Wash">Wash</option>
+                <option value="Detailing">Polishing</option>
+                <option value="Painting">Painting</option>
+                <option value="Other">Other</option>
+
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <select id="vehicle">
+                <option value="" disabled selected>Select Your Vehicle</option>
+                <option value="Car">Car</option>
+                <option value="Bike">Bike</option>
+                <option value="Other">Other</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+            <!--<div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="datetime-local" placeholder="Select Date and Time" />
+            </div>-->
+
+            <div class="input-field">
+              <i class="fas fa-calendar"></i>
+              <input id="datetimepicker" type="datetime-local" placeholder="Select Date and Time" min="" />
+            </div>
+          
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input id="mobilenumber" type="text" placeholder="Enter Your Mobile" pattern="\d{10}" title="Mobile number must be 10 digits" />
+            </div>
+          
+
+            
+            <input type="submit" value="Book Now" class="btn solid" />
+            <p class="social-text">Or Connect Us Through Social platforms</p>
+            <div class="social-media">
+              <a href="https://facebook.com/depotautohub" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://instagram.com/depotautohub" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/6282863838" class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <!--<a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>-->
+            </div>
+          </form>
+          <form id="second-form" class="sign-up-form">
+            <h2 class="title">Home Pickup and Drop</h2>
+            
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <select id="vehicle2">
+                <option value="" disabled selected>Select Your Vehicle</option>
+                <option value="Car">Car</option>
+                <option value="Bike">Bike</option>
+                <option value="Other">Other</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-calendar"></i>
+              <input id="datetimepicker2" type="datetime-local" placeholder="Select Date and Time" min="" />
+            </div>
+          
+            <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input id="mobilenumber2" type="text" placeholder="Enter Your Mobile" pattern="\d{10}" title="Mobile number must be 10 digits" />
+          </div>
+        
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input id="address" type="text" placeholder="Enter Your Address" />
+            </div>
+            <input type="submit" value="Book Now" class="btn solid" />  
+
+          </form>
+
+
+
+
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>Home Pickup and Drop Service</h3>
+            <p>
+              "Experience unparalleled convenience with our Home Pickup and Drop Service. Sit back and relax as we collect your vehicle from your doorstep, deliver top-quality service, and return it to you, hassle-free."
+            </p>
+            <button class="btn transparent" id="ssign-up-btn">
+          <a href="tel:6282863838" style="text-decoration: none; color: azure;">Call Now</a>
+            </button>
+          </div>
+          <img src="img/log.svg" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Book a Slot</h3>
+            <p>
+              Book a Service Time Slot to Avoid Rush
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Book a Slot
+            </button>
+          </div>
+          <img src="img/log.svg" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      // Get the current date and format it as YYYY-MM-DDThh:mm
+const currentDate1 = new Date().toISOString().slice(0, 16);
+
+// Set the min attribute of the datetime-local input field to the current date
+document.getElementById("datetimepicker").min = currentDate1;
+
+// Get the current date and format it as YYYY-MM-DDThh:mm
+const currentDate2 = new Date().toISOString().slice(0, 16);
+
+// Set the min attribute of the second datetime-local input field to the current date
+document.getElementById("datetimepicker2").min = currentDate2;
+
+// Add an input event listener to the mobile number input field
+document.getElementById("mobilenumber").addEventListener("input", function() {
+    // Remove any non-digit characters from the input value
+    this.value = this.value.replace(/\D/g, '');
+});
+
+// Add an input event listener to the mobile number input field
+document.getElementById("mobilenumber2").addEventListener("input", function() {
+    // Remove any non-digit characters from the input value
+    this.value = this.value.replace(/\D/g, '');
+});
+
+
+
+
+    </script>
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js'
+  
+      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js'
+  
+      // Add Firebase products that you want to use
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js'
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js'
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="mail.js"></script>
+
+
+    <script>
+document.getElementById('submitform').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    
+    // Validate form fields
+    const service = document.getElementById('service').value;
+    const vehicle = document.getElementById('vehicle').value;
+    const datetime = document.getElementById('datetimepicker').value;
+    const mobileNumber = document.getElementById('mobilenumber').value;
+
+    if (service.trim() === '' || vehicle.trim() === '' || datetime.trim() === '' || mobileNumber.trim() === '') {
+
+        return;
+    }
+
+    // Submit data to server (You should add your code here)
+
+    // Clear the form fields
+    this.reset(); // Resets the form to its initial state
+
+    // Display a popup message
+    alert('Your slot has been booked!');
+});
+
+
+
+    </script>
+
+
+
+  </body>
+</html>
